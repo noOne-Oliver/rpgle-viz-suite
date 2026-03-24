@@ -1,0 +1,47 @@
+[build-system]
+requires = ["setuptools>=45", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "rpgle-viz-suite"
+version = "1.0.0"
+description = "RPGLE Visualization Suite - Flowcharts, SDD, and Lineage Analysis for AS400"
+readme = "README.md"
+license = {text = "MIT"}
+authors = [
+    {name = "AS400 Advisor", email = "as400-advisor@example.com"}
+]
+keywords = ["rpgle", "as400", "flowchart", "visualization", "sdd"]
+classifiers = [
+    "Development Status :: 4 - Beta",
+    "Intended Audience :: Developers",
+    "License :: OSI Approved :: MIT License",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.8",
+    "Programming Language :: Python :: 3.9",
+    "Programming Language :: Python :: 3.10",
+    "Topic :: Software Development :: Libraries :: Python Modules",
+]
+
+[project.optional-dependencies]
+dev = ["pytest", "pytest-cov", "black", "flake8"]
+jira = ["jira"]
+confluence = ["confluence"]"
+
+[project.urls]
+Homepage = "https://github.com/noOne-Oliver/rpgle-viz-suite"
+Documentation = "https://github.com/noOne-Oliver/rpgle-viz-suite#readme"
+Repository = "https://github.com/noOne-Oliver/rpgle-viz-suite.git"
+Issues = "https://github.com/noOne-Oliver/rpgle-viz-suite/issues"
+
+[tool.setuptools.packages.find]
+where = ["."]
+include = ["rpgle_flowchart*", "rpgle_sdd*", "as400_analyzer*", "integration*"]
+
+[tool.black]
+line-length = 100
+target-version = ['py38', 'py39', 'py310']
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+python_files = ["test_*.py"]
